@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
 
+import { useState } from 'react';
+import './App.css';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+
+const TodoItemInputField = (props) => {
+  const [input, setInput] = useState("")
+
+
+  return (
+    <div>
+      <TextField 
+      id="todo-item-input" 
+      label="Todo Item" 
+      variant="outlined" 
+      value={input}
+      onChange={(e) => setInput(e.target.value)}
+      />
+      <Button variant="outlined">Submit</Button>
+    </div>
+  )
+  
+}
 function App() {
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TodoItemInputField />
     </div>
   );
 }
